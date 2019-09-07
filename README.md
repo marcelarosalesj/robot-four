@@ -25,3 +25,6 @@ docker run -v $(pwd):/localdisk --device=/dev/video0:/dev/video0 --device=/dev/v
 docker start  <container_hash>
 docker attach <container_hash>
 ```
+
+## Mount USB
+Check out this [guide](https://pimylifeup.com/raspberry-pi-mount-usb-drive/)
