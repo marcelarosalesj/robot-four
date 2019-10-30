@@ -1,18 +1,19 @@
-# robot-4
+# Fog robot
 
-Robot-four is a mobile robot thought to work on an edge cloud environment.
+Fog robot is a mobile robot thought to work on an edge cloud environment.
 
+## Hardware components
 
-## Architecture
-
-### Hardware
 * Pixhawk
 * Companion Computer Raspberry Pi
 
-### Software
-* Docker container
-* Computer Vision application based on OpenCV
+## Software architecture
+The Software Architecture is based on microservices using Docker containers. The vision processing is done with OpenCV framework.
 
+* vision-sense
+* image-processing
+* control-panel
+* wheel-motion
 
 ## Container Development environment
 ```
@@ -28,3 +29,8 @@ docker attach <container_hash>
 
 ## Mount USB
 Check out this [guide](https://pimylifeup.com/raspberry-pi-mount-usb-drive/)
+
+## References
+* [Building your first Chat Application using Flask in 7 minutes](https://codeburst.io/building-your-first-chat-application-using-flask-in-7-minutes-f98de4adfa5d)
+* [Designing a RESTful API with Python and Flask](https://blog.miguelgrinberg.com/post/designing-a-restful-api-with-python-and-flask)
+* [Code repository for micro-services: mono repository or multiple repositories](https://medium.com/@somakdas/code-repository-for-micro-services-mono-repository-or-multiple-repositories-d9ad6a8f6e0e)
