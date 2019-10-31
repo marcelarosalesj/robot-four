@@ -10,10 +10,11 @@ Fog robot is a mobile robot thought to work on an edge cloud environment.
 ## Software architecture
 The Software Architecture is based on microservices using Docker containers. The vision processing is done with OpenCV framework.
 
-* vision-sense
-* image-processing
-* control-panel
-* wheel-motion
+* vision-sense: client system that automatically pulls an image every x seconds, stores it in image-storage and request an operation to image-processing.
+* image-processing: server system that performs operation on the image
+* control-panel: front-end
+* wheel-motion: server system that manages the wheels of the Fog robot.
+* image-storage: filesystem that stores all images related to this system.
 
 ## Container Development environment
 ```
@@ -26,6 +27,8 @@ docker run -v $(pwd):/localdisk --device=/dev/video0:/dev/video0 --device=/dev/v
 docker start  <container_hash>
 docker attach <container_hash>
 ```
+For some the `Dockerfile` files in this project, it is required to use the appropriate virtualenv to use the OpenCV installation.
+
 
 ## Mount USB
 Check out this [guide](https://pimylifeup.com/raspberry-pi-mount-usb-drive/)
@@ -34,3 +37,4 @@ Check out this [guide](https://pimylifeup.com/raspberry-pi-mount-usb-drive/)
 * [Building your first Chat Application using Flask in 7 minutes](https://codeburst.io/building-your-first-chat-application-using-flask-in-7-minutes-f98de4adfa5d)
 * [Designing a RESTful API with Python and Flask](https://blog.miguelgrinberg.com/post/designing-a-restful-api-with-python-and-flask)
 * [Code repository for micro-services: mono repository or multiple repositories](https://medium.com/@somakdas/code-repository-for-micro-services-mono-repository-or-multiple-repositories-d9ad6a8f6e0e)
+* [API Integration in Python – Part 1](https://realpython.com/api-integration-in-python/)
