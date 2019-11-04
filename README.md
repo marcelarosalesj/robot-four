@@ -30,6 +30,35 @@ docker attach <container_hash>
 For some the `Dockerfile` files in this project, it is required to use the appropriate virtualenv to use the OpenCV installation.
 
 
+## Proxies
+For running `docker-compose` in an internal network, consider to setup these:
+* Add to `/etc/systemd/system/docker.service.d/http-proxy.conf` this `Environment="HTTP_PROXY=http://proxy_url:proxy_port" "NO_PROXY=localhost,127.0.0.0/8"`
+* Add here `~/.docker/config.json` this
+```
+{
+ "proxies":
+ {
+   "default":
+   {
+     "httpProxy": "http://proxy.server:port",
+     "httpsProxy": "http://proxy.server:port",
+     "noProxy": "localhost,127.0.0.1"
+   }
+ }
+}
+```
+
+
+## Docker compose
+
+```
+# to start the containers
+docker-compose up
+
+# to remove everything
+docker-compose down -v --rmi all --remove-orphans
+```
+
 ## Mount USB
 Check out this [guide](https://pimylifeup.com/raspberry-pi-mount-usb-drive/)
 
@@ -38,3 +67,4 @@ Check out this [guide](https://pimylifeup.com/raspberry-pi-mount-usb-drive/)
 * [Designing a RESTful API with Python and Flask](https://blog.miguelgrinberg.com/post/designing-a-restful-api-with-python-and-flask)
 * [Code repository for micro-services: mono repository or multiple repositories](https://medium.com/@somakdas/code-repository-for-micro-services-mono-repository-or-multiple-repositories-d9ad6a8f6e0e)
 * [API Integration in Python – Part 1](https://realpython.com/api-integration-in-python/)
+* [Using pyZMQ for inter-process communication: Part 1](https://www.pythonforthelab.com/blog/using-pyzmq-for-inter-process-communication-part-1/)

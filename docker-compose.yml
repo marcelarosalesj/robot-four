@@ -1,0 +1,12 @@
+version: "2"
+
+services:
+  vision-sense:
+    build: vision-sense
+    environment:
+      SERVER_LISTEN_URI: tcp://0.0.0.0:5557
+
+  image-processing:
+    build: image-processing
+    environment:
+      SERVER_CONNECT_URI: tcp://vision-sense:5557
