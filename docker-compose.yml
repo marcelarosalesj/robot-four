@@ -4,7 +4,14 @@ services:
   vision-sense:
     build: vision-sense
     environment:
-      SERVER_LISTEN_URI: tcp://0.0.0.0:5557
+        - SERVER_LISTEN_URI=tcp://0.0.0.0:5557
+        - DISPLAY=:0
+    ports:
+        - 5000:5000
+    devices:
+        - /dev/video0:/dev/video0
+    volumes:
+        - /tmp/.X11-unix:/tmp/.X11-unix
 
   image-processing:
     build: image-processing
