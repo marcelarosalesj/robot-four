@@ -18,3 +18,16 @@ services:
     build: image-processing
     environment:
       SERVER_CONNECT_URI: tcp://vision-sense:5557
+  database:
+      build: database
+      environment:
+          - INFLUXDB_DB=defaultdb
+          - INFLUXDB_ADMIN_ENABLED=true
+          - INFLUXDB_ADMIN_USER=admin
+          - INFLUXDB_ADMIN_PASSWORD=adminpass
+          - INFLUXDB_USER=user
+          - INFLUXDB_USER_PASSWORD=userpass
+      ports:
+          - 8086:8086
+      volumes:
+          - ./database:/var/lib/influxdb
