@@ -9,13 +9,13 @@ print("Listening to {}...".format(address))
 images = [
     {
         'id': 1,
-        'path': u'../image-storage/img01.jpg',
-        'path-bw': u'../image-storage/img01-bw.jpg',
+        'path': u'../storage/img01.jpg',
+        'path-bw': u'../storage/img01-bw.jpg',
     },
     {
         'id': 2,
-        'path': u'../image-storage/img02.jpg',
-        'path-bw': u'../image-storage/img02-bw.jpg',
+        'path': u'../storage/img02.jpg',
+        'path-bw': u'../storage/img02-bw.jpg',
     }
 ]
 

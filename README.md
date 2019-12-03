@@ -10,11 +10,11 @@ Fog robot is a mobile robot thought to work on an edge cloud environment.
 ## Software architecture
 The Software Architecture is based on microservices using Docker containers. The vision processing is done with OpenCV framework.
 
-* vision-sense: client system that automatically pulls an image every x seconds, stores it in image-storage and request an operation to image-processing.
+* vision-sense: client system that automatically pulls an image every x seconds, stores it in storage directory and request an operation to image-processing.
 * image-processing: server system that performs operation on the image
 * control-panel: front-end
 * wheel-motion: server system that manages the wheels of the Fog robot.
-* image-storage: filesystem that stores all images related to this system.
+* storage: filesystem that stores all images related to this system.
 
 ## Container Development environment
 ```

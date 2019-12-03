@@ -19,7 +19,7 @@ while True:
         break
     elif k == 115: # s
         print('shoot-store-process')
-        file_name = '/image-storage/img{}.jpg'.format(cont)
+        file_name = '/storage/img{}.jpg'.format(cont)
         cv2.imwrite(file_name, img)
         cont = cont + 1
         image_json = {"path": file_name}

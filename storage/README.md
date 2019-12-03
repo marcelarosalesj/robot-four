@@ -1,4 +1,4 @@
-# image-storage
+# storage
 
 This directory is to store the images of the Fog robot. For this architecture, the images are going to be stored using a file system storage because DB storage is usually more expensive.
 

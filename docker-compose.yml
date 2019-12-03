@@ -12,7 +12,7 @@ services:
         - /dev/video0:/dev/video0
     volumes:
         - /tmp/.X11-unix:/tmp/.X11-unix
-        - ./image-storage:/image-storage
+        - ./storage:/storage
 
   image-processing:
     build: image-processing
