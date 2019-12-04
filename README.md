@@ -15,6 +15,7 @@ The Software Architecture is based on microservices using Docker containers. The
 * control-panel: front-end
 * wheel-motion: server system that manages the wheels of the Fog robot.
 * storage: filesystem that stores all images related to this system.
+* database: influxdb with information about image path and timestamp.
 
 ## Getting started
 ```
@@ -23,7 +24,7 @@ xhost +local:docker
 docker network create my-network --driver bridge
 docker-compose up
 ```
-
+Note: remove proxies environmental variables in `vision-sense` so it can connect to `database`.
 ## Container Development environment
 ```
 # Get started
