@@ -1,5 +1,6 @@
 import zmq
 import cv2
+import os
 
 context = zmq.Context()
 socket = context.socket(zmq.PUSH)
@@ -25,6 +26,7 @@ while True:
         image_json = {"path": file_name}
         socket.send_json(image_json)
         print("Sent message")
+        os.system('curl -G "http://influxdb:8086/query?pretty=true" --data-urlencode "q=show databases"')
 
 cap.release()
 cv2.destroyAllWindows()

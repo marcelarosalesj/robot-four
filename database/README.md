@@ -5,7 +5,7 @@ This uses influxdb
 ## Interact with the DB
 ```
 # Show databases
-curl -G "http://somehost:8086/query?pretty=true" --data-urlencode "q=show databases"
+curl -G "http://localhost:8086/query?pretty=true" --data-urlencode "q=show databases"
 
 ```
 

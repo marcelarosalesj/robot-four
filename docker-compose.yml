@@ -1,5 +1,9 @@
 version: "2"
 
+networks:
+    my-network:
+        driver: bridge
+
 services:
   vision-sense:
     build: vision-sense
@@ -13,21 +17,22 @@ services:
     volumes:
         - /tmp/.X11-unix:/tmp/.X11-unix
         - ./storage:/storage
-
+    networks:
+        - my-network
   image-processing:
     build: image-processing
     environment:
       SERVER_CONNECT_URI: tcp://vision-sense:5557
+    networks:
+        - my-network
   database:
       build: database
       environment:
-          - INFLUXDB_DB=defaultdb
-          - INFLUXDB_ADMIN_ENABLED=true
-          - INFLUXDB_ADMIN_USER=admin
-          - INFLUXDB_ADMIN_PASSWORD=adminpass
-          - INFLUXDB_USER=user
-          - INFLUXDB_USER_PASSWORD=userpass
+          - INFLUXDB_HTTP_AUTH_ENABLED=false
       ports:
           - 8086:8086
+          - 8088:8088
       volumes:
-          - ./database:/var/lib/influxdb
+          - ./database/influxdb:/var/lib/influxdb
+      networks:
+          - my-network

@@ -16,6 +16,14 @@ The Software Architecture is based on microservices using Docker containers. The
 * wheel-motion: server system that manages the wheels of the Fog robot.
 * storage: filesystem that stores all images related to this system.
 
+## Getting started
+```
+DISPLAY=:0.0 ; export DISPLAY
+xhost +local:docker
+docker network create my-network --driver bridge
+docker-compose up
+```
+
 ## Container Development environment
 ```
 # Get started
