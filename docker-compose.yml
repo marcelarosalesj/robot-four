@@ -34,5 +34,6 @@ services:
           - 8088:8088
       volumes:
           - ./database/influxdb:/var/lib/influxdb
+          - ./database/influx_init.iql:/docker-entrypoint-initdb.d/influx_init.iql
       networks:
           - my-network

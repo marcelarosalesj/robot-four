@@ -77,3 +77,6 @@ Check out this [guide](https://pimylifeup.com/raspberry-pi-mount-usb-drive/)
 * [Code repository for micro-services: mono repository or multiple repositories](https://medium.com/@somakdas/code-repository-for-micro-services-mono-repository-or-multiple-repositories-d9ad6a8f6e0e)
 * [API Integration in Python – Part 1](https://realpython.com/api-integration-in-python/)
 * [Using pyZMQ for inter-process communication: Part 1](https://www.pythonforthelab.com/blog/using-pyzmq-for-inter-process-communication-part-1/)
+* [Python RESTful APIs running on containers, the easy way](https://medium.com/@ea1het/https-medium-com-ea1het-python-restful-apis-running-on-containers-the-easy-way-530d44a48eea) - very comprehensive guide
+* [bacabhome github repository](https://github.com/bacabhome/bacabhome)
+* [DAOS github repository](https://github.com/daos-stack/daos)
