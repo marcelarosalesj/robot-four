@@ -10,12 +10,21 @@ Fog robot is a mobile robot thought to work on an edge cloud environment.
 ## Software architecture
 The Software Architecture is based on microservices using Docker containers. The vision processing is done with OpenCV framework.
 
-* vision-sense: client system that automatically pulls an image every x seconds, stores it in image-storage and request an operation to image-processing.
+* vision-sense: client system that automatically pulls an image every x seconds, stores it in storage directory and request an operation to image-processing.
 * image-processing: server system that performs operation on the image
 * control-panel: front-end
 * wheel-motion: server system that manages the wheels of the Fog robot.
-* image-storage: filesystem that stores all images related to this system.
+* storage: filesystem that stores all images related to this system.
+* database: influxdb with information about image path and timestamp.
 
+## Getting started
+```
+DISPLAY=:0.0 ; export DISPLAY
+xhost +local:docker
+docker network create my-network --driver bridge
+docker-compose up
+```
+Note: remove proxies environmental variables in `vision-sense` so it can connect to `database`.
 ## Container Development environment
 ```
 # Get started
@@ -68,3 +77,6 @@ Check out this [guide](https://pimylifeup.com/raspberry-pi-mount-usb-drive/)
 * [Code repository for micro-services: mono repository or multiple repositories](https://medium.com/@somakdas/code-repository-for-micro-services-mono-repository-or-multiple-repositories-d9ad6a8f6e0e)
 * [API Integration in Python – Part 1](https://realpython.com/api-integration-in-python/)
 * [Using pyZMQ for inter-process communication: Part 1](https://www.pythonforthelab.com/blog/using-pyzmq-for-inter-process-communication-part-1/)
+* [Python RESTful APIs running on containers, the easy way](https://medium.com/@ea1het/https-medium-com-ea1het-python-restful-apis-running-on-containers-the-easy-way-530d44a48eea) - very comprehensive guide
+* [bacabhome github repository](https://github.com/bacabhome/bacabhome)
+* [DAOS github repository](https://github.com/daos-stack/daos)
