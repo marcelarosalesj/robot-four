@@ -1,0 +1,39 @@
+version: "2"
+
+networks:
+    my-network:
+        driver: bridge
+
+services:
+  vision-sense:
+    build: vision-sense
+    environment:
+        - SERVER_LISTEN_URI=tcp://0.0.0.0:5557
+        - DISPLAY=:0
+    ports:
+        - 5000:5000
+    devices:
+        - /dev/video0:/dev/video0
+    volumes:
+        - /tmp/.X11-unix:/tmp/.X11-unix
+        - ./storage:/storage
+    networks:
+        - my-network
+  image-processing:
+    build: image-processing
+    environment:
+      SERVER_CONNECT_URI: tcp://vision-sense:5557
+    networks:
+        - my-network
+  database:
+      build: database
+      environment:
+          - INFLUXDB_HTTP_AUTH_ENABLED=false
+      ports:
+          - 8086:8086
+          - 8088:8088
+      volumes:
+          - ./database/influxdb:/var/lib/influxdb
+          - ./database/influx_init.iql:/docker-entrypoint-initdb.d/influx_init.iql
+      networks:
+          - my-network
