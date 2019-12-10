@@ -9,12 +9,16 @@ curl -G "http://localhost:8086/query?pretty=true" --data-urlencode "q=show datab
 
 ```
 
-## About InfluxDB and DB concepts
-InfluxDB is a Time Series Database (TSDB). It doesn't have keys as RDBMS.
-TSDB are optimized for timestamp usage.
-TSDB is the gastest growing segment in the database industry.
-
-
+## InfluxDB concepts
+- InfluxDB is a Time Series Database (TSDB)
+- TSDB are optimized for timestamp usage
+- measurement
+- points
+- time/timestamp
+- field
+- tags
+- InfluxDB line protocol `<measurement>[,<tag-key>=<tag-value>...] <field-key>=<field-value>[,<field2-key>=<field2-value>...] [unix-nano-timestamp]`
+- [InfluxQL query language](https://docs.influxdata.com/influxdb/v1.7/query_language/)
 
 ## References
 * [Getting Started with Python and InfluxDB](https://www.influxdata.com/blog/getting-started-python-influxdb/)
