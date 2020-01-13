@@ -1,0 +1,12 @@
+numpy
+pandas
+scipy
+scikit-learn
+jupyter-client
+jupyter-console
+jupyter-core
+scikit-multilearn
+matplotlib
+Pillow
+ipython
+ipdb
